@@ -83,4 +83,7 @@ while True:
     print()
     print("What task do you want to edit")
     editChoice = input("> ")
-    
+    for i in range(len(taskList)):
+      if editChoice == taskList[i][0]:
+        print(taskList[i])
+        break
