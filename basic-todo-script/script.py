@@ -83,7 +83,41 @@ while True:
     print()
     print("What task do you want to edit")
     editChoice = input("> ")
-    for i in range(len(taskList)):
-      if editChoice == taskList[i][0]:
-        print(taskList[i])
+    for task in taskList:
+      if editChoice == task[0]:
+        for task, date, priority in task:
+          print (f"Task = {task}\n Date = {date}\n Priority = {priority}")
+          print()
+          edit = input("What would you like edit:\n 1.Task\n 2.Date\n 3.Priority")
+          if edit == "1":
+            changeTask = input(f"Change {task.upper()} to what? > ")
+            task[0] = changeTask
+            print("Edit Made")
+            print(task)
+          elif edit == "2":
+            changeDate = input(f"Change {date.upper()} to what? > ")
+            task[1] = changeDate
+            print("Edit Made")
+            print(task)
+          elif edit == "3":
+            changePriority = input(f"Change {priority.upper()} to what? > ")
+            task[2] = changePriority
+            print("Edit Made")
+            print(task)
+            print()
         break
+        
+  if action == "4":
+    print("What task do you want to delete?")
+    prettyPrint()
+    print()
+    rmv = input("> ")
+    for rtask in taskList:
+      if rmv == rtask[0]:
+        taskList.remove(rtask)
+        print()
+        prettyPrint()
+      else:
+        print("Task does not exist")
+      break
+      
